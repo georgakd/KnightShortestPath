@@ -1,3 +1,10 @@
+Create an application that should represent an empty chessboard where the user will be able
+to enter a starting position and an ending position. The application should then calculate a list 
+of all possible paths that one knight piece in the starting position could take to reach the ending 
+position in 3 moves. Some inputs might not have a solution, in this case the program should display 
+a message that no solution has been found. Otherwise, the shortest path (if that exists) should be returned.
+
+
 ### How-To Build the project in Linux
 
 In order to build the project follow these steps:
