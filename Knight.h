@@ -19,7 +19,7 @@ namespace knight {
     void writePositions(char x, char y) override;
     virtual ~Knight() = default;
 
-  public:
+  private:
     // arrays to store all possible knight movements
     const int chess_row[xdim] = {2, 2, -2, -2, 1, 1, -1, -1};
     const int chess_col[ydim] = {-1, 1, 1, -1, 2, -2, 2, -2};

@@ -6,22 +6,20 @@
 #include <iostream>
 #include "Knight.h"
 
-using namespace knight;
-
 int main() {
   
   const std::string in_filename = "../input.txt";
   
   // Read the initial coordinates of the knight from file and set initial positions
   int xstart, ystart, xdest, ydest;
-  Knight src_knight, dest_knight, read_knight;
+  knight::Knight read_knight;
+
   if (read_knight.readPositions(xstart, ystart, xdest, ydest, in_filename)) {
     return EXIT_FAILURE;
   }
-  else {
-    src_knight.setPositions(xstart, ystart);
-    dest_knight.setPositions(xdest, ydest);
-  }
+
+  knight::Knight src_knight(xstart, ystart);
+  knight::Knight dest_knight(xdest, ydest);
 
   // Find the min distance from source to destination
   auto result = dest_knight.findMinDistance(src_knight, dest_knight);

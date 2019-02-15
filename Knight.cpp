@@ -6,17 +6,16 @@
 
 #define NOT_FOUND (-1)
 
-namespace knight {
+  knight::Knight::Knight() : m_x{0}, m_y{0} { }
+  knight::Knight::Knight(int x, int y) : m_x{x}, m_y{y} { }
 
-  Knight::Knight() : m_x{0}, m_y{0} { }
-  Knight::Knight(int x, int y) : m_x{x}, m_y{y} { }
-
-  std::ostream &operator<<(std::ostream &out, const Knight &knight){
-    out << knight.getXPosition()+1 << knight.getYPosition()+1 << std::endl;
-    return out;
+  std::ostream &operator<<(std::ostream &out, const knight::Knight &knight) {
+      out << knight.getXPosition() + 1 << knight.getYPosition() + 1 << std::endl;
+      return out;
   }
 
-  int Knight::findMinDistance(Knight &src, Knight &dest) {
+
+  int knight::Knight::findMinDistance(Knight &src, Knight &dest) {
 
     int xnew, ynew;
     std::string name;
@@ -88,16 +87,16 @@ namespace knight {
     return NOT_FOUND;
   }
 
-  void Knight::setPositions(int x, int y) {
+  void knight::Knight::setPositions(int x, int y) {
     m_x = x;
     m_y = y;
   }
 
-  int Knight::getXPosition() const {return m_x;}
+  int knight::Knight::getXPosition() const {return m_x;}
 
-  int Knight::getYPosition() const {return m_y;}
+  int knight::Knight::getYPosition() const {return m_y;}
 
-  int Knight::readPositions(int &xstart, int &ystart, int &xdest, int &ydest, const std::string &in_filename) {
+  int knight::Knight::readPositions(int &xstart, int &ystart, int &xdest, int &ydest, const std::string &in_filename) {
 
     std::string line;
     std::ifstream input;
@@ -126,7 +125,7 @@ namespace knight {
     return EXIT_SUCCESS;
   }
 
-  void Knight::writePositions(char x, char y) {
+  void knight::Knight::writePositions(char x, char y) {
     std::fstream output;
     std::string out_filename = "../output.txt";
     output.open(out_filename, std::ios_base::out | std::ios_base::app);
@@ -141,4 +140,3 @@ namespace knight {
 
   }
 
-}
