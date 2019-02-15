@@ -6,12 +6,12 @@ int xstart = 0;
 int ystart = 0;
 int xdest = 0;
 int ydest = 0;
-const std::string in_filename = "../input.txt";
-const std::string in1_filename = "../input1.txt";
-const std::string in2_filename = "../input2.txt";
-const std::string in3_filename = "../input3.txt";
-const std::string in6_filename = "../input6.txt";
-const std::string in_oor_filename = "../input_oor.txt";
+const std::string in_filename = "../../tests/input.txt";
+const std::string in1_filename = "../../tests/input1.txt";
+const std::string in2_filename = "../../tests/input2.txt";
+const std::string in3_filename = "../../tests/input3.txt";
+const std::string in6_filename = "../../tests/input6.txt";
+const std::string in_oor_filename = "../../tests/input_oor.txt";
 
 TEST_CASE("1. Test if the src/dest positions are read from file as expected.")
 {
@@ -31,6 +31,7 @@ TEST_CASE("2. Test the out of the board positions handling.")
 
 }
 
+
 TEST_CASE("3. Test if the source/dest positions are set as expected")
 {
 
@@ -47,6 +48,7 @@ TEST_CASE("3. Test if the source/dest positions are set as expected")
   CHECK(testKnight.getYPosition() == ydest);
 
 }
+
 
 TEST_CASE("4. Test find Knight's destination with one move")
 {
@@ -103,7 +105,6 @@ TEST_CASE("7. Test find Knight's destination with six moves")
   CHECK(result == 6); //six moves
 
 }
-
 
 
 

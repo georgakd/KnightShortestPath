@@ -1,0 +1,1 @@
+enter knight positions xstart ystart xdest ydest: 5 5 3 2
