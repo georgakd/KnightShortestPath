@@ -27,9 +27,7 @@ int main() {
     std::cout << "Solution not found" << std::endl;
   }
   else {
-    std::cout << "Solution found at min moves: " << result << std::endl;
-    if (result == 3) std::cout << "Solution acceptable!" << std::endl;
-    else std::cout << "Moves != 3..." << std::endl;
+    std::cout << "Solution found at minimum moves: " << result << std::endl;
   }
   return EXIT_SUCCESS;
 }

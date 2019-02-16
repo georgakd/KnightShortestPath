@@ -22,9 +22,11 @@
 
     // map to store the unique node and mark it true when visited
     std::map<std::pair <int, int>, bool > checked;
-    // maps to store the convertion to (A,H),(1,8) system
+    // maps to store the conversion to (A,H),(1,8) system
     const std::map<int, char> map_L = {{1, 'A'}, {2, 'B'}, {3, 'C'}, {4, 'D'}, {5, 'E'}, {6, 'F'}, {7, 'G'}, {8, 'H'}};
     const std::map<int, char> map_N = {{1, '1'}, {2, '2'}, {3, '3'}, {4, '4'}, {5, '5'}, {6, '6'}, {7, '7'}, {8, '8'}};
+
+    remove( "../output.txt" );
 
     std::queue<Knight> q_node;
     std::queue<std::string> q_paths;
@@ -37,27 +39,30 @@
     q_paths.push(name); // push the name of the visited node to the queue m_paths
 
 #ifndef UNIT_TEST
-    std::cout << "The knight's available moves are: " << std::endl;
+    std::cout << "The knight's visited nodes are: " << std::endl;
 #endif
 
     while (!q_node.empty()) {
       Knight current = q_node.front();
-#ifndef UNIT_TEST
-      std::cout << q_paths.front() << std::endl;
-#endif
+
       q_node.pop();
       q_paths.pop();
 
       int x = current.m_x;
       int y = current.m_y;
       int dist = current.m_distance;
+      auto coords = std::make_pair(current.m_x, current.m_y);
 
       if ( x == dest.m_x && y == dest.m_y) {
         dest.m_distance = dist;
+#ifndef UNIT_TEST
+        std::cout << "*" << map_L.at(coords.first+1) << map_N.at(coords.second+1) << std::endl;
+        std::cout << "--------------------------------------" << std::endl;
+        dest.writePositions(map_L.at(coords.first+1), map_N.at(coords.second+1) );
+#endif
         return dest.m_distance;
       }
 
-      auto coords = std::make_pair(current.m_x, current.m_y);
       if (!checked.count(coords)) {
 
 #ifndef UNIT_TEST
